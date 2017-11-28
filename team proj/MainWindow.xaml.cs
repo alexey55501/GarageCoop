@@ -31,6 +31,7 @@ namespace team_proj
             Garages.Add(new Garage("Гараж №91", 98.7));
             Garages.Add(new Garage("Гараж №77", 61.5));
             lvGarages.ItemsSource = Garages;
+
         }
 
         private void tbSearch_TextChanged(object sender, TextChangedEventArgs e)

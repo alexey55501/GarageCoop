@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:team_proj"
         mc:Ignorable="d"
-        Title="Гаражный кооператив" Height="313" Width="525" FontSize="16" FontFamily="Arial">
+        Title="Гаражный кооператив" Height="300" Width="525" FontSize="16" FontFamily="Arial">
+    <Window.Resources>
+        <local:FontConverter x:Key="FontConverter1" />
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.4*"/>
@@ -44,39 +47,39 @@
         </Viewbox>
 
         <StackPanel Margin="0,6,6,6" Grid.Row="1" Grid.Column="1">
-            <TextBlock Text="Информация" FontSize="20" FontWeight="Bold"/>
+            <TextBlock Text="Информация" FontSize="{Binding ElementName=datagrid1, Path=ActualWidth, Converter={StaticResource FontConverter1}}" FontWeight="Bold"/>
             <StackPanel Orientation="Horizontal" Margin="0,6,0,0">
-                <TextBlock Text="Владелец:" FontWeight="Bold" FontSize="17" />
-                <TextBlock Text="ФИО" FontSize="17" Margin="3,0,0,0" />
+                <TextBlock Text="Владелец:" FontWeight="Bold" FontSize="{Binding ElementName=datagrid1, Path=ActualWidth, Converter={StaticResource FontConverter1}}" />
+                <TextBlock Text="ФИО" FontSize="{Binding ElementName=datagrid1, Path=ActualWidth, Converter={StaticResource FontConverter1}}" Margin="3,0,0,0" />
             </StackPanel>
-            <DataGrid Margin="0,2,0,0" Height="100" FontSize="17" ColumnHeaderHeight="30">
+            <DataGrid Name="datagrid1" Margin="0,2,0,0" Height="100" FontSize="17" ColumnHeaderHeight="30">
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" FontFamily="Arial" Header="Дата"/>
-                    <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" FontFamily="Arial" Header="Рента (нач.)"/>
-                    <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" FontFamily="Arial" Header="Рента (внес.)"/>
-                    <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" FontFamily="Arial" Header="Показания"/>
-                    <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" FontFamily="Arial" Header="Электроэнергия (внес.)"/>
+                    <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" FontSize="15" FontFamily="Arial" Header="Рента (нач.)"/>
+                    <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" FontSize="15" FontFamily="Arial" Header="Рента (внес.)"/>
+                    <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" FontSize="15" FontFamily="Arial" Header="Показания"/>
+                    <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" FontSize="15" FontFamily="Arial" Header="Электроэнергия (внес.)"/>
                 </DataGrid.Columns>
             </DataGrid>
             <StackPanel Orientation="Horizontal" Margin="0,6,0,0" >
-                <TextBlock Text="Баланс:" FontWeight="Bold" FontSize="17" />
-                <TextBlock Text="0.00" FontSize="17" Margin="3,0,0,0" />
-                <TextBlock Text="грн" FontSize="17" Margin="3,0,0,0" />
+                <TextBlock Text="Баланс:" FontWeight="Bold" FontSize="{Binding ElementName=datagrid1, Path=ActualWidth, Converter={StaticResource FontConverter1}}" />
+                <TextBlock Text="0.00" FontSize="{Binding ElementName=datagrid1, Path=ActualWidth, Converter={StaticResource FontConverter1}}" Margin="3,0,0,0" />
+                <TextBlock Text="грн" FontSize="{Binding ElementName=datagrid1, Path=ActualWidth, Converter={StaticResource FontConverter1}}" Margin="3,0,0,0" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,3,0,0" >
-                <TextBlock Text="Рента:" FontWeight="Bold" FontSize="17" />
-                <TextBlock Text="0.00" FontSize="17" Margin="3,0,0,0" />
-                <TextBlock Text="грн" FontSize="17" Margin="3,0,0,0" />
+                <TextBlock Text="Рента:" FontWeight="Bold" FontSize="{Binding ElementName=datagrid1, Path=ActualWidth, Converter={StaticResource FontConverter1}}" />
+                <TextBlock Text="0.00" FontSize="{Binding ElementName=datagrid1, Path=ActualWidth, Converter={StaticResource FontConverter1}}" Margin="3,0,0,0" />
+                <TextBlock Text="грн" FontSize="{Binding ElementName=datagrid1, Path=ActualWidth, Converter={StaticResource FontConverter1}}" Margin="3,0,0,0" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,3,0,0" >
-                <TextBlock Text="Показания счётчика:" FontWeight="Bold" FontSize="17" />
-                <TextBlock Text="0.00" FontSize="17" Margin="3,0,0,0" />
-                <TextBlock Text="кв" FontSize="17" Margin="3,0,0,0" />
+                <TextBlock Text="Показания счётчика:" FontWeight="Bold" FontSize="{Binding ElementName=datagrid1, Path=ActualWidth, Converter={StaticResource FontConverter1}}" />
+                <TextBlock Text="0.00" FontSize="{Binding ElementName=datagrid1, Path=ActualWidth, Converter={StaticResource FontConverter1}}" Margin="3,0,0,0" />
+                <TextBlock Text="кв" FontSize="{Binding ElementName=datagrid1, Path=ActualWidth, Converter={StaticResource FontConverter1}}" Margin="3,0,0,0" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,3,0,0" >
-                <TextBlock Text="Электричество:" FontWeight="Bold" FontSize="17" />
-                <TextBlock Text="0.00" FontSize="17" Margin="3,0,0,0" />
-                <TextBlock Text="кв" FontSize="17" Margin="3,0,0,0" />
+                <TextBlock Text="Электричество:" FontWeight="Bold" FontSize="{Binding ElementName=datagrid1, Path=ActualWidth, Converter={StaticResource FontConverter1}}" />
+                <TextBlock Text="0.00" FontSize="{Binding ElementName=datagrid1, Path=ActualWidth, Converter={StaticResource FontConverter1}}" Margin="3,0,0,0" />
+                <TextBlock Text="кв" FontSize="{Binding ElementName=datagrid1, Path=ActualWidth, Converter={StaticResource FontConverter1}}" Margin="3,0,0,0" />
             </StackPanel>
         </StackPanel>
     </Grid>

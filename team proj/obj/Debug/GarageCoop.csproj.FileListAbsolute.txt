@@ -15,3 +15,4 @@ D:\projects\team proj\team proj\obj\Debug\Forms\DirectorWindow.g.cs
 D:\projects\team proj\team proj\obj\Debug\Forms\LoginWindow.g.cs
 D:\projects\team proj\team proj\obj\Debug\Forms\DirectorWindow.baml
 D:\projects\team proj\team proj\obj\Debug\Forms\LoginWindow.baml
+D:\projects\team proj\team proj\obj\Debug\GeneratedInternalTypeHelper.g.cs
