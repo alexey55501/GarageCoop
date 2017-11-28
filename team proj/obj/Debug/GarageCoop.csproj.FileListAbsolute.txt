@@ -1,0 +1,17 @@
+D:\projects\team proj\team proj\bin\Debug\team proj.exe.config
+D:\projects\team proj\team proj\bin\Debug\team proj.exe
+D:\projects\team proj\team proj\bin\Debug\team proj.pdb
+D:\projects\team proj\team proj\obj\Debug\MainWindow.g.cs
+D:\projects\team proj\team proj\obj\Debug\App.g.cs
+D:\projects\team proj\team proj\obj\Debug\team proj_MarkupCompile.cache
+D:\projects\team proj\team proj\obj\Debug\team proj_MarkupCompile.lref
+D:\projects\team proj\team proj\obj\Debug\MainWindow.baml
+D:\projects\team proj\team proj\obj\Debug\team proj.g.resources
+D:\projects\team proj\team proj\obj\Debug\team_proj.Properties.Resources.resources
+D:\projects\team proj\team proj\obj\Debug\GarageCoop.csproj.GenerateResource.Cache
+D:\projects\team proj\team proj\obj\Debug\team proj.exe
+D:\projects\team proj\team proj\obj\Debug\team proj.pdb
+D:\projects\team proj\team proj\obj\Debug\Forms\DirectorWindow.g.cs
+D:\projects\team proj\team proj\obj\Debug\Forms\LoginWindow.g.cs
+D:\projects\team proj\team proj\obj\Debug\Forms\DirectorWindow.baml
+D:\projects\team proj\team proj\obj\Debug\Forms\LoginWindow.baml
