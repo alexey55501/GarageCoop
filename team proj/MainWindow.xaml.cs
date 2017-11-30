@@ -27,16 +27,20 @@ namespace team_proj
             Garages = new List<Garage>();
             Garages.Add(new Garage("Гараж №3", 113.2));
             Garages.Add(new Garage("Гараж №127", 251.1));
-            Garages.Add(new Garage("Гараж №56", 23.4));
+            Garages.Add(new Garage("Гараж №56", -23.4));
             Garages.Add(new Garage("Гараж №91", 98.7));
-            Garages.Add(new Garage("Гараж №77", 61.5));
+            Garages.Add(new Garage("Гараж №23", 0.00));
             lvGarages.ItemsSource = Garages;
-
+            foreach (DataGridColumn column in datagrid1.Columns)
+            {
+                column.Width = new DataGridLength(1.0, DataGridLengthUnitType.Star);
+                column.MinWidth = 130;
+            }
         }
 
         private void tbSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
-                lvGarages.ItemsSource = Garages.Where(a => a.Name.Contains(tbSearch.Text));
+            lvGarages.ItemsSource = Garages.Where(a => a.Name.Contains(tbSearch.Text));
         }
     }
 }
