@@ -20,7 +20,7 @@ namespace team_proj.Forms
     /// </summary>
     public partial class LoginWindow : Window
     {
-        SqlConnection _connection;
+        SqlConnection _connection = null;
 
         public LoginWindow()
         {
@@ -58,6 +58,7 @@ namespace team_proj.Forms
             }
             finally
             {
+                if(_connection != null)
                 _connection.Close();
             }
         }
