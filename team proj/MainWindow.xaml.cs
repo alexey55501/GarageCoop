@@ -20,18 +20,10 @@ namespace team_proj
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<Garage> Garages;
         public MainWindow()
         {
             InitializeComponent();
 
-            Garages = new List<Garage>();
-            Garages.Add(new Garage("Гараж №3", 113.2));
-            Garages.Add(new Garage("Гараж №127", 251.1));
-            Garages.Add(new Garage("Гараж №56", -23.4));
-            Garages.Add(new Garage("Гараж №91", 98.7));
-            Garages.Add(new Garage("Гараж №23", 0.00));
-            lvGarages.ItemsSource = Garages;
             foreach (DataGridColumn column in datagrid1.Columns)
             {
                 column.Width = new DataGridLength(1.0, DataGridLengthUnitType.Star);
@@ -41,7 +33,8 @@ namespace team_proj
 
         private void tbSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
-            lvGarages.ItemsSource = Garages.Where(a => a.Name.Contains(tbSearch.Text));
+            /* Код, получающий выборку исходя из введенного в текстбокс текста */
+            //lvGarages.ItemsSource = Garages.Where(a => a.Name.Contains(tbSearch.Text));
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)

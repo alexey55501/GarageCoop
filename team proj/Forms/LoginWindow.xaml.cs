@@ -25,21 +25,23 @@ namespace team_proj.Forms
         public LoginWindow()
         {
             InitializeComponent();
+            tbLogin.Focus();
         }
 
         private void bEnter_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                Task.Factory.StartNew(() => {
                     _connection = new SqlConnection
-                    { ConnectionString = "Data Source = 10.3.11.100; Initial Catalog = GarageDb; Integrated Security = True;" };
+                    {
+                        ConnectionString = "Data Source = 10.3.11.100; Initial Catalog = GarageDb; Integrated Security = True;"
+                    };
                     _connection.Open();
+
                     SqlCommand comm = new SqlCommand();
-
-                    comm.CommandText = String.Format("Select Count(*) FROM Employee WHERE Login = '{0}' AND Password = '{1}'", tbLogin.Text, tbPassword.Text);
-
+                    comm.CommandText = String.Format("Select Count(*) FROM Employee WHERE Login = '{0}' AND Password = '{1}'", tbLogin.Text, tbPassword.Password);
                     comm.Connection = _connection;
+
                     int test = (int)comm.ExecuteScalar();
                     if (test >= 1)
                     {
@@ -49,8 +51,6 @@ namespace team_proj.Forms
                     {
                         MessageBox.Show("Wrong!");
                     }
-                });
-               
             }
             catch (Exception ex)
             {
