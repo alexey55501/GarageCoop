@@ -53,3 +53,22 @@ C:\Users\08739\Desktop\GarageCoop-75c45175330e0dbe356b0d6817a985f50713c31c\team 
 C:\Users\08739\Desktop\GarageCoop-75c45175330e0dbe356b0d6817a985f50713c31c\team proj\obj\Debug\team proj.g.resources
 C:\Users\08739\Desktop\GarageCoop-75c45175330e0dbe356b0d6817a985f50713c31c\team proj\obj\Debug\team_proj.Properties.Resources.resources
 C:\Users\08739\Desktop\GarageCoop-75c45175330e0dbe356b0d6817a985f50713c31c\team proj\obj\Debug\GarageCoop.csproj.GenerateResource.Cache
+C:\Users\08739\Desktop\GarageCoop-master\team proj\bin\Debug\team proj.exe.config
+C:\Users\08739\Desktop\GarageCoop-master\team proj\obj\Debug\team proj.exe
+C:\Users\08739\Desktop\GarageCoop-master\team proj\obj\Debug\team proj.pdb
+C:\Users\08739\Desktop\GarageCoop-master\team proj\bin\Debug\team proj.exe
+C:\Users\08739\Desktop\GarageCoop-master\team proj\bin\Debug\team proj.pdb
+C:\Users\08739\Desktop\GarageCoop-master\team proj\obj\Debug\GarageCoop.csprojResolveAssemblyReference.cache
+C:\Users\08739\Desktop\GarageCoop-master\team proj\obj\Debug\Forms\DirectorWindow.g.cs
+C:\Users\08739\Desktop\GarageCoop-master\team proj\obj\Debug\Forms\LoginWindow.g.cs
+C:\Users\08739\Desktop\GarageCoop-master\team proj\obj\Debug\MainWindow.g.cs
+C:\Users\08739\Desktop\GarageCoop-master\team proj\obj\Debug\App.g.cs
+C:\Users\08739\Desktop\GarageCoop-master\team proj\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\08739\Desktop\GarageCoop-master\team proj\obj\Debug\team proj_MarkupCompile.cache
+C:\Users\08739\Desktop\GarageCoop-master\team proj\obj\Debug\team proj_MarkupCompile.lref
+C:\Users\08739\Desktop\GarageCoop-master\team proj\obj\Debug\Forms\DirectorWindow.baml
+C:\Users\08739\Desktop\GarageCoop-master\team proj\obj\Debug\Forms\LoginWindow.baml
+C:\Users\08739\Desktop\GarageCoop-master\team proj\obj\Debug\MainWindow.baml
+C:\Users\08739\Desktop\GarageCoop-master\team proj\obj\Debug\team proj.g.resources
+C:\Users\08739\Desktop\GarageCoop-master\team proj\obj\Debug\team_proj.Properties.Resources.resources
+C:\Users\08739\Desktop\GarageCoop-master\team proj\obj\Debug\GarageCoop.csproj.GenerateResource.Cache
