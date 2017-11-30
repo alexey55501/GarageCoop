@@ -24,7 +24,6 @@ namespace team_proj
         public MainWindow()
         {
             InitializeComponent();
-
             Garages = new List<Garage>();
             Garages.Add(new Garage("Гараж №3", 113.2));
             Garages.Add(new Garage("Гараж №127", 251.1));
@@ -42,11 +41,6 @@ namespace team_proj
         private void tbSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
             lvGarages.ItemsSource = Garages.Where(a => a.Name.Contains(tbSearch.Text));
-        }
-
-        private void CloseButton_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
         }
     }
 }

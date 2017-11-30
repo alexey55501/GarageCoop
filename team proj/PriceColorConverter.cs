@@ -20,11 +20,11 @@ namespace team_proj
             }
             else if(price > 0)
             {
-                return new SolidColorBrush(Colors.ForestGreen);
+                return new SolidColorBrush(Colors.Green);
             }
             else
             {
-                return new SolidColorBrush(Colors.DarkOrange);
+                return new SolidColorBrush(Colors.Orange);
             }
         }
 
