@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-\\server2\Exchange\27 поток\СТ\СП-2722\Обмен\GarageCoop\team proj\obj\Debug\
+C:\Users\08739\Desktop\last checkout\GarageCoop\team proj\obj\Debug\
 team_proj
 none
 false
 DEBUG;TRACE
-\\server2\Exchange\27 поток\СТ\СП-2722\Обмен\GarageCoop\team proj\App.xaml
+C:\Users\08739\Desktop\last checkout\GarageCoop\team proj\App.xaml
 3-893213355
 
 131475226950
 13-1643599102
 Forms\DirectorWindow.xaml;Forms\LoginWindow.xaml;MainWindow.xaml;
 
-True
+False
 

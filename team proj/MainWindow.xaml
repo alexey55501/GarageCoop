@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:team_proj"
         mc:Ignorable="d"
-        Title="Гаражный кооператив" Height="450" Width="525" FontSize="16" FontFamily="Arial" WindowStyle="None" ResizeMode="NoResize"  
+        Title="Гаражный кооператив" FontSize="16" FontFamily="Titillium" WindowStyle="None" ResizeMode="NoResize"  
     WindowStartupLocation="CenterScreen" WindowState="Maximized">
     <Window.Resources>
         <local:PriceColorConverter x:Key="MyPriceColorConverter" />
@@ -20,10 +20,10 @@
             <RowDefinition />
             <RowDefinition Height="30" />
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Background="#C7C2B9" />
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Background="#A5B3C5" />
         <StackPanel Grid.Row="1">
         </StackPanel>
-        <StackPanel Grid.Row="2" Grid.ColumnSpan="2" Background="#C7C2B9">
+        <StackPanel Grid.Row="2" Grid.ColumnSpan="2" Background="#A5B3C5">
             <StackPanel Orientation="Horizontal" Margin="0,3,0,0" >
                 <TextBlock Text="Касса:" FontWeight="Bold" FontSize="18" Margin="5,0,0,0" />
                 <TextBlock Text="0.00" FontSize="18" Margin="3,0,0,0" FontWeight="Normal" />
@@ -32,27 +32,49 @@
         </StackPanel>
         <DockPanel Grid.Row="1">
             <TextBox Name="tbSearch" FontSize="16" DockPanel.Dock="Top" Margin="6,6,6,0" BorderBrush="Black" BorderThickness="1" TextChanged="tbSearch_TextChanged"/>
-            <ListView Name="lvGarages" Grid.Row="1" Margin="6" Background="#D6D6CC" BorderBrush="Black" BorderThickness="1">
-                <ListView.ItemTemplate>                                        
-                    <DataTemplate>                        
+            <ListView Name="lvGarages" Grid.Row="1" Margin="6" Background="#E0E0E0" BorderBrush="Black" BorderThickness="1">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
                         <StackPanel HorizontalAlignment="Left" Margin="4">
                             <TextBlock Text="{Binding Name}" FontWeight="Bold" FontSize="17" />
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock x:Name="TextBlockBalance" Text="{Binding Balance}" FontSize="12" Foreground="{Binding Path=Balance, Converter={StaticResource ResourceKey=MyPriceColorConverter}}" />
+                                <TextBlock x:Name="TextBlockBalance" Text="{Binding Balance}" FontSize="12" FontWeight="Bold" Foreground="{Binding Path=Balance, Converter={StaticResource ResourceKey=MyPriceColorConverter}}" />
                                 <TextBlock Text=" грн" FontSize="12" />
                             </StackPanel>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListViewItem}">
+                        <Style.Resources>
+                            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}"
+                                 Color="#494F57"/>
+                        </Style.Resources>
+                    </Style>
+                </ListView.ItemContainerStyle>
             </ListView>
         </DockPanel>
-        <StackPanel Grid.ColumnSpan="2" Background="#EAE6E3" />
+        <StackPanel Grid.ColumnSpan="2" Background="#D0D1D9" />
         <Viewbox Grid.ColumnSpan="2"  StretchDirection="Both" HorizontalAlignment="Left">
             <StackPanel Orientation="Horizontal" >
                 <TextBlock Margin="6,6,3,6" Text="Охранник:" FontWeight="Bold" FontSize="18"/>
                 <TextBlock Margin="0,6,6,6" Text="ФИО" FontSize="18" />
             </StackPanel>
         </Viewbox>
+        <Button Name="CloseButton" HorizontalAlignment="Right" Cursor="Hand" Margin="5" Content="X" FontWeight="Bold" Foreground="White" Grid.ColumnSpan="2" Width="30" Height="25" Click="CloseButton_Click">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Background" Value="#B21A13" />
+                    <Setter Property="BorderBrush" Value="#B21A13" />
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#911510" />
+                            <Setter Property="BorderBrush" Value="#911510" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
 
         <StackPanel Margin="0,6,6,6" Grid.Row="1" Grid.Column="1">
             <TextBlock Text="Информация" FontSize="20" FontWeight="Bold"/>
@@ -60,7 +82,7 @@
                 <TextBlock Text="Владелец:" FontWeight="Bold" FontSize="18" />
                 <TextBlock Text="ФИО" FontSize="18" Margin="3,0,0,0" />
             </StackPanel>
-            <DataGrid Name="datagrid1" Margin="0,2,0,0" Height="300" FontSize="17" ColumnHeaderHeight="30" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch">
+            <DataGrid Name="datagrid1" Margin="0,2,0,0" Height="300" FontSize="17" ColumnHeaderHeight="30" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" Background="#E0E0E0">
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" FontFamily="Arial" Header="Дата"/>
                     <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" FontFamily="Arial" Header="Рента (нач.)"/>
@@ -68,8 +90,15 @@
                     <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" FontFamily="Arial" Header="Показания"/>
                     <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" FontFamily="Arial" Header="Электроэнергия (внес.)"/>
                 </DataGrid.Columns>
+                <DataGrid.Resources>
+                    <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                        <Setter Property="Background" Value="#78828F" />
+                        <Setter Property="Foreground" Value="#E0E0E0" />
+                        <Setter Property="HorizontalContentAlignment" Value="Center" />
+                    </Style>
+                </DataGrid.Resources>
             </DataGrid>
-            <GroupBox Header="Баланс" FontSize="18" FontWeight="Bold" Margin="0,15,0,0">
+            <GroupBox Header="Баланс" FontSize="18" FontWeight="Bold" Margin="0,15,0,0" BorderBrush="White" BorderThickness="2">
                 <StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,3,0,0" >
                         <TextBlock Text="Рента:" FontWeight="Bold" FontSize="17" Margin="3,0,0,0" />
@@ -88,28 +117,54 @@
                     </StackPanel>
                 </StackPanel>
             </GroupBox>
-            <GroupBox Header="Текущие показания" FontSize="18" FontWeight="Bold" Margin="0,10,0,0">
+            <GroupBox Header="Текущие показания" FontSize="18" FontWeight="Bold" Margin="0,6,0,0" BorderBrush="White" BorderThickness="2">
                 <StackPanel>
-                    <StackPanel Orientation="Horizontal" Margin="0,3,0,0" >
+                    <StackPanel Orientation="Horizontal" Margin="0,2,0,0" >
                         <TextBlock Text="Данные:" FontWeight="Bold" FontSize="17" Margin="3,3,0,0" />
-                        <TextBox FontSize="17" Margin="5,0,0,0" Width="100"/>
+                        <TextBox FontSize="17" Margin="5,0,0,0" Width="100" BorderBrush="#D0D1D9" BorderThickness="1.5" FontWeight="Normal"/>
                     </StackPanel>
-                    <Button Content="Обновить" HorizontalAlignment="Left" FontSize="16" Margin="3,5,0,0" Width="180" FontWeight="Normal"/>
+                    <Button Content="Обновить" HorizontalAlignment="Left" FontSize="16" FontWeight="Normal" Foreground="#E0E0E0" Margin="3,5,0,0" Width="180" BorderThickness="0.5" Cursor="Hand">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#78828F" />
+                                <Setter Property="BorderBrush" Value="#78828F" />
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#69727D" />
+                                        <Setter Property="BorderBrush" Value="#69727D" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
                 </StackPanel>
             </GroupBox>
-            <GroupBox Header="Оплата" FontSize="18" FontWeight="Bold" Margin="0,10,0,0">
+            <GroupBox Header="Оплата" FontSize="18" FontWeight="Bold" Margin="0,6,0,0"  BorderBrush="White" BorderThickness="2">
                 <StackPanel Orientation="Vertical">
-                    <StackPanel Orientation="Horizontal" Margin="0,3,0,0" >
+                    <StackPanel Orientation="Horizontal" Margin="0,2,0,0" >
                         <StackPanel>
                             <TextBlock Text="Взнос за ренту" FontWeight="Bold" FontSize="17" Margin="3,3,0,0" />
-                            <TextBox FontSize="17" Margin="3,0,0,0" Width="130" HorizontalAlignment="Left" />
+                            <TextBox FontSize="17" Margin="3,0,0,0" Width="130" HorizontalAlignment="Left" BorderBrush="#D0D1D9" BorderThickness="1.5" FontWeight="Normal"/>
                         </StackPanel>
-                        <StackPanel Margin="10,0,0,0">
+                        <StackPanel Margin="8,0,0,0">
                             <TextBlock Text="Взнос за электр." FontWeight="Bold" FontSize="17" Margin="3,3,0,0" />
-                            <TextBox FontSize="17" Margin="3,0,0,0" Width="140" HorizontalAlignment="Left" />
+                            <TextBox FontSize="17" Margin="3,0,0,0" Width="140" HorizontalAlignment="Left" BorderBrush="#D0D1D9" BorderThickness="1.5" FontWeight="Normal"/>
                         </StackPanel>
                     </StackPanel>
-                    <Button Content="Оплатить" Margin="5,5,0,5" FontSize="17" FontWeight="Normal" Width="282" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+                    <Button Content="Оплатить" Margin="2,5,0,5" FontSize="17" FontWeight="Normal" Foreground="#E0E0E0" Width="285" VerticalAlignment="Bottom" HorizontalAlignment="Left" BorderThickness="0.5" Cursor="Hand">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#78828F" />
+                                <Setter Property="BorderBrush" Value="#78828F" />
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#69727D" />
+                                        <Setter Property="BorderBrush" Value="#69727D" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
                 </StackPanel>
             </GroupBox>
         </StackPanel>
