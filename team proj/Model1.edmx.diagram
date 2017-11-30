@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="246b5e1449c046158fd509de9ded15fd" Name="Diagram1">
+        <EntityTypeShape EntityType="GarageDbModel.Electricity" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GarageDbModel.Employee" Width="1.5" PointX="8" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GarageDbModel.Garage" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GarageDbModel.Owner" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GarageDbModel.Parking" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GarageDbModel.Positions" Width="1.5" PointX="5.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GarageDbModel.Rent" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GarageDbModel.RentLog" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="GarageDbModel.SalaryLog" Width="1.5" PointX="10.25" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GarageDbModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="8.75" IsExpanded="true" />
+        <AssociationConnector Association="GarageDbModel.FK__RentLog__Id_Elec__3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="GarageDbModel.FK__Employee__Id_Pos__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="GarageDbModel.FK__SalaryLog__Id_Em__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="GarageDbModel.FK__Garage__Id_Owner__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="GarageDbModel.FK__RentLog__Id_Gara__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="GarageDbModel.FK__RentLog__Id_Rent__3E52440B" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

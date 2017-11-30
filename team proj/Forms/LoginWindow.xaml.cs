@@ -20,7 +20,6 @@ namespace team_proj.Forms
     /// </summary>
     public partial class LoginWindow : Window
     {
-        SqlConnection _connection = null;
 
         public LoginWindow()
         {
@@ -30,37 +29,32 @@ namespace team_proj.Forms
 
         private void bEnter_Click(object sender, RoutedEventArgs e)
         {
-            try
+            using (GarageDbEntities gdbe = new GarageDbEntities())
             {
-                    _connection = new SqlConnection
+                Employee emp = gdbe.Employee.FirstOrDefault(a => a.Login == tbLogin.Text && a.Password == tbPassword.Password);
+                if (emp == null)
+                {
+                    MessageBox.Show("Ошибка");
+                    tbLogin.Text = tbPassword.Password = string.Empty;
+                }
+                else
+                {
+                    /* Exception here (empty database) */
+                    switch (gdbe.Positions.FirstOrDefault(a => a.Id == emp.Positions.Id).Name)
                     {
-                        ConnectionString = "Data Source = 10.3.11.100; Initial Catalog = GarageDb; Integrated Security = True;"
-                    };
-                    _connection.Open();
-
-                    SqlCommand comm = new SqlCommand();
-                    comm.CommandText = String.Format("Select Count(*) FROM Employee WHERE Login = '{0}' AND Password = '{1}'", tbLogin.Text, tbPassword.Password);
-                    comm.Connection = _connection;
-
-                    int test = (int)comm.ExecuteScalar();
-                    if (test >= 1)
-                    {
-                        MessageBox.Show("Welcome");
+                        case "Охранник":
+                            /* Запуск формы охранника */
+                            break;
+                        case "Директор":
+                            /* Запуск формы директора */
+                            break;
+                        default:
+                            MessageBox.Show("Ошибка", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Error);
+                            break;
                     }
-                    else
-                    {
-                        MessageBox.Show("Wrong!");
-                    }
+                }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                if(_connection != null)
-                _connection.Close();
-            }
+
         }
     }
 }

@@ -1,0 +1,556 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище GarageDbModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Electricity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tax" Type="int" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+          <Property Name="Date" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Id_Position" Type="int" />
+          <Property Name="Login" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Garage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Number" Type="int" />
+          <Property Name="Id_Owner" Type="int" />
+        </EntityType>
+        <EntityType Name="Owner">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Parking">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PlaceNumber" Type="int" />
+        </EntityType>
+        <EntityType Name="Positions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Salary" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Rent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tax" Type="int" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+          <Property Name="Date" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="RentLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Garage" Type="int" />
+          <Property Name="Id_Electricity" Type="int" />
+          <Property Name="Id_Rent" Type="int" />
+          <Property Name="ElectricityAmount" Type="int" />
+          <Property Name="RentAmount" Type="int" />
+          <Property Name="CounterValue" Type="int" />
+          <Property Name="Date" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SalaryLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date" Type="nvarchar" MaxLength="50" />
+          <Property Name="Id_Employee" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK__Employee__Id_Pos__35BCFE0A">
+          <End Role="Positions" Type="Self.Positions" Multiplicity="0..1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Positions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="Id_Position" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Garage__Id_Owner__2E1BDC42">
+          <End Role="Owner" Type="Self.Owner" Multiplicity="0..1" />
+          <End Role="Garage" Type="Self.Garage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Owner">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Garage">
+              <PropertyRef Name="Id_Owner" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RentLog__Id_Elec__3D5E1FD2">
+          <End Role="Electricity" Type="Self.Electricity" Multiplicity="0..1" />
+          <End Role="RentLog" Type="Self.RentLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Electricity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RentLog">
+              <PropertyRef Name="Id_Electricity" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RentLog__Id_Gara__3C69FB99">
+          <End Role="Garage" Type="Self.Garage" Multiplicity="0..1" />
+          <End Role="RentLog" Type="Self.RentLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Garage">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RentLog">
+              <PropertyRef Name="Id_Garage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RentLog__Id_Rent__3E52440B">
+          <End Role="Rent" Type="Self.Rent" Multiplicity="0..1" />
+          <End Role="RentLog" Type="Self.RentLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rent">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RentLog">
+              <PropertyRef Name="Id_Rent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SalaryLog__Id_Em__38996AB5">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="SalaryLog" Type="Self.SalaryLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SalaryLog">
+              <PropertyRef Name="Id_Employee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище GarageDbModelContainer">
+          <EntitySet Name="Electricity" EntityType="Self.Electricity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Garage" EntityType="Self.Garage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Owner" EntityType="Self.Owner" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Parking" EntityType="Self.Parking" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Positions" EntityType="Self.Positions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rent" EntityType="Self.Rent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RentLog" EntityType="Self.RentLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SalaryLog" EntityType="Self.SalaryLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Employee__Id_Pos__35BCFE0A" Association="Self.FK__Employee__Id_Pos__35BCFE0A">
+            <End Role="Positions" EntitySet="Positions" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Garage__Id_Owner__2E1BDC42" Association="Self.FK__Garage__Id_Owner__2E1BDC42">
+            <End Role="Owner" EntitySet="Owner" />
+            <End Role="Garage" EntitySet="Garage" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RentLog__Id_Elec__3D5E1FD2" Association="Self.FK__RentLog__Id_Elec__3D5E1FD2">
+            <End Role="Electricity" EntitySet="Electricity" />
+            <End Role="RentLog" EntitySet="RentLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RentLog__Id_Gara__3C69FB99" Association="Self.FK__RentLog__Id_Gara__3C69FB99">
+            <End Role="Garage" EntitySet="Garage" />
+            <End Role="RentLog" EntitySet="RentLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RentLog__Id_Rent__3E52440B" Association="Self.FK__RentLog__Id_Rent__3E52440B">
+            <End Role="Rent" EntitySet="Rent" />
+            <End Role="RentLog" EntitySet="RentLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SalaryLog__Id_Em__38996AB5" Association="Self.FK__SalaryLog__Id_Em__38996AB5">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="SalaryLog" EntitySet="SalaryLog" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GarageDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Electricity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tax" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="RentLog" Relationship="Self.FK__RentLog__Id_Elec__3D5E1FD2" FromRole="Electricity" ToRole="RentLog" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Id_Position" Type="Int32" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Positions" Relationship="Self.FK__Employee__Id_Pos__35BCFE0A" FromRole="Employee" ToRole="Positions" />
+          <NavigationProperty Name="SalaryLog" Relationship="Self.FK__SalaryLog__Id_Em__38996AB5" FromRole="Employee" ToRole="SalaryLog" />
+        </EntityType>
+        <EntityType Name="Garage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Number" Type="Int32" />
+          <Property Name="Id_Owner" Type="Int32" />
+          <NavigationProperty Name="Owner" Relationship="Self.FK__Garage__Id_Owner__2E1BDC42" FromRole="Garage" ToRole="Owner" />
+          <NavigationProperty Name="RentLog" Relationship="Self.FK__RentLog__Id_Gara__3C69FB99" FromRole="Garage" ToRole="RentLog" />
+        </EntityType>
+        <EntityType Name="Owner">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Garage" Relationship="Self.FK__Garage__Id_Owner__2E1BDC42" FromRole="Owner" ToRole="Garage" />
+        </EntityType>
+        <EntityType Name="Parking">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PlaceNumber" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Positions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Salary" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__Employee__Id_Pos__35BCFE0A" FromRole="Positions" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="Rent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tax" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="RentLog" Relationship="Self.FK__RentLog__Id_Rent__3E52440B" FromRole="Rent" ToRole="RentLog" />
+        </EntityType>
+        <EntityType Name="RentLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Garage" Type="Int32" />
+          <Property Name="Id_Electricity" Type="Int32" />
+          <Property Name="Id_Rent" Type="Int32" />
+          <Property Name="ElectricityAmount" Type="Int32" />
+          <Property Name="RentAmount" Type="Int32" />
+          <Property Name="CounterValue" Type="Int32" />
+          <Property Name="Date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Electricity" Relationship="Self.FK__RentLog__Id_Elec__3D5E1FD2" FromRole="RentLog" ToRole="Electricity" />
+          <NavigationProperty Name="Garage" Relationship="Self.FK__RentLog__Id_Gara__3C69FB99" FromRole="RentLog" ToRole="Garage" />
+          <NavigationProperty Name="Rent" Relationship="Self.FK__RentLog__Id_Rent__3E52440B" FromRole="RentLog" ToRole="Rent" />
+        </EntityType>
+        <EntityType Name="SalaryLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Id_Employee" Type="Int32" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__SalaryLog__Id_Em__38996AB5" FromRole="SalaryLog" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK__RentLog__Id_Elec__3D5E1FD2">
+          <End Role="Electricity" Type="Self.Electricity" Multiplicity="0..1" />
+          <End Role="RentLog" Type="Self.RentLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Electricity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RentLog">
+              <PropertyRef Name="Id_Electricity" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Employee__Id_Pos__35BCFE0A">
+          <End Role="Positions" Type="Self.Positions" Multiplicity="0..1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Positions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="Id_Position" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SalaryLog__Id_Em__38996AB5">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="SalaryLog" Type="Self.SalaryLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SalaryLog">
+              <PropertyRef Name="Id_Employee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Garage__Id_Owner__2E1BDC42">
+          <End Role="Owner" Type="Self.Owner" Multiplicity="0..1" />
+          <End Role="Garage" Type="Self.Garage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Owner">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Garage">
+              <PropertyRef Name="Id_Owner" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RentLog__Id_Gara__3C69FB99">
+          <End Role="Garage" Type="Self.Garage" Multiplicity="0..1" />
+          <End Role="RentLog" Type="Self.RentLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Garage">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RentLog">
+              <PropertyRef Name="Id_Garage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RentLog__Id_Rent__3E52440B">
+          <End Role="Rent" Type="Self.Rent" Multiplicity="0..1" />
+          <End Role="RentLog" Type="Self.RentLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rent">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RentLog">
+              <PropertyRef Name="Id_Rent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GarageDbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Electricity" EntityType="Self.Electricity" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" />
+          <EntitySet Name="Garage" EntityType="Self.Garage" />
+          <EntitySet Name="Owner" EntityType="Self.Owner" />
+          <EntitySet Name="Parking" EntityType="Self.Parking" />
+          <EntitySet Name="Positions" EntityType="Self.Positions" />
+          <EntitySet Name="Rent" EntityType="Self.Rent" />
+          <EntitySet Name="RentLog" EntityType="Self.RentLog" />
+          <EntitySet Name="SalaryLog" EntityType="Self.SalaryLog" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <AssociationSet Name="FK__RentLog__Id_Elec__3D5E1FD2" Association="Self.FK__RentLog__Id_Elec__3D5E1FD2">
+            <End Role="Electricity" EntitySet="Electricity" />
+            <End Role="RentLog" EntitySet="RentLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Employee__Id_Pos__35BCFE0A" Association="Self.FK__Employee__Id_Pos__35BCFE0A">
+            <End Role="Positions" EntitySet="Positions" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SalaryLog__Id_Em__38996AB5" Association="Self.FK__SalaryLog__Id_Em__38996AB5">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="SalaryLog" EntitySet="SalaryLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Garage__Id_Owner__2E1BDC42" Association="Self.FK__Garage__Id_Owner__2E1BDC42">
+            <End Role="Owner" EntitySet="Owner" />
+            <End Role="Garage" EntitySet="Garage" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RentLog__Id_Gara__3C69FB99" Association="Self.FK__RentLog__Id_Gara__3C69FB99">
+            <End Role="Garage" EntitySet="Garage" />
+            <End Role="RentLog" EntitySet="RentLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RentLog__Id_Rent__3E52440B" Association="Self.FK__RentLog__Id_Rent__3E52440B">
+            <End Role="Rent" EntitySet="Rent" />
+            <End Role="RentLog" EntitySet="RentLog" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище GarageDbModelContainer" CdmEntityContainer="GarageDbEntities">
+          <EntitySetMapping Name="Electricity">
+            <EntityTypeMapping TypeName="GarageDbModel.Electricity">
+              <MappingFragment StoreEntitySet="Electricity">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Tax" ColumnName="Tax" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employee">
+            <EntityTypeMapping TypeName="GarageDbModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Id_Position" ColumnName="Id_Position" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Garage">
+            <EntityTypeMapping TypeName="GarageDbModel.Garage">
+              <MappingFragment StoreEntitySet="Garage">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Id_Owner" ColumnName="Id_Owner" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Owner">
+            <EntityTypeMapping TypeName="GarageDbModel.Owner">
+              <MappingFragment StoreEntitySet="Owner">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Parking">
+            <EntityTypeMapping TypeName="GarageDbModel.Parking">
+              <MappingFragment StoreEntitySet="Parking">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PlaceNumber" ColumnName="PlaceNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Positions">
+            <EntityTypeMapping TypeName="GarageDbModel.Positions">
+              <MappingFragment StoreEntitySet="Positions">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rent">
+            <EntityTypeMapping TypeName="GarageDbModel.Rent">
+              <MappingFragment StoreEntitySet="Rent">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Tax" ColumnName="Tax" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RentLog">
+            <EntityTypeMapping TypeName="GarageDbModel.RentLog">
+              <MappingFragment StoreEntitySet="RentLog">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_Garage" ColumnName="Id_Garage" />
+                <ScalarProperty Name="Id_Electricity" ColumnName="Id_Electricity" />
+                <ScalarProperty Name="Id_Rent" ColumnName="Id_Rent" />
+                <ScalarProperty Name="ElectricityAmount" ColumnName="ElectricityAmount" />
+                <ScalarProperty Name="RentAmount" ColumnName="RentAmount" />
+                <ScalarProperty Name="CounterValue" ColumnName="CounterValue" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalaryLog">
+            <EntityTypeMapping TypeName="GarageDbModel.SalaryLog">
+              <MappingFragment StoreEntitySet="SalaryLog">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Id_Employee" ColumnName="Id_Employee" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="GarageDbModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

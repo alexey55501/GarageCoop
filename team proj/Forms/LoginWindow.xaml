@@ -14,7 +14,7 @@
             <Label x:Name="lbPassword" Content="Пароль:" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
             <PasswordBox x:Name="tbPassword" HorizontalAlignment="Left" Height="23" 
                     VerticalAlignment="Top" Width="120" Foreground="Black" BorderBrush="#D0D1D9" BorderThickness="1.5"/>
-            <Button IsDefault="True" Click="bEnter_Click" Name="bEnter" Cursor="Hand" Width="120" Height="25" Margin="0,5,0,0" Content="Войти" Foreground="White" >
+            <Button IsDefault="True" Click="bEnter_Click" Name="bEnter" Cursor="Hand" Width="120" Height="25" Margin="0,5,0,0" Content="Войти" Foreground="White" BorderThickness="1.5" >
                 <Button.Style>
                     <Style TargetType="Button">
                         <Setter Property="Background" Value="#78828F" />

@@ -110,6 +110,51 @@ C:\Users\08739\Desktop\Новая папка (3)\GarageCoop\team proj\obj\Debug\
 C:\Users\08739\Desktop\Новая папка (3)\GarageCoop\team proj\obj\Debug\team proj.g.resources
 C:\Users\08739\Desktop\Новая папка (3)\GarageCoop\team proj\obj\Debug\team_proj.Properties.Resources.resources
 C:\Users\08739\Desktop\Новая папка (3)\GarageCoop\team proj\obj\Debug\GarageCoop.csproj.GenerateResource.Cache
-C:\Users\09014\Desktop\GC\GarageCoop\team proj\bin\Debug\team proj.exe.config
-C:\Users\09014\Desktop\GC\GarageCoop\team proj\obj\Debug\team proj.exe
-C:\Users\09014\Desktop\GC\GarageCoop\team proj\obj\Debug\team proj.pdb
+C:\Users\08739\Desktop\checkout\GarageCoop\team proj\bin\Debug\team proj.exe.config
+C:\Users\08739\Desktop\checkout\GarageCoop\team proj\obj\Debug\team proj.exe
+C:\Users\08739\Desktop\checkout\GarageCoop\team proj\obj\Debug\team proj.pdb
+C:\Users\08739\Desktop\checkout\GarageCoop\team proj\bin\Debug\team proj.exe
+C:\Users\08739\Desktop\checkout\GarageCoop\team proj\bin\Debug\team proj.pdb
+C:\Users\08739\Desktop\checkout\GarageCoop\team proj\obj\Debug\GarageCoop.csprojResolveAssemblyReference.cache
+C:\Users\08739\Desktop\checkout\GarageCoop\team proj\obj\Debug\Forms\DirectorWindow.g.cs
+C:\Users\08739\Desktop\checkout\GarageCoop\team proj\obj\Debug\Forms\LoginWindow.g.cs
+C:\Users\08739\Desktop\checkout\GarageCoop\team proj\obj\Debug\MainWindow.g.cs
+C:\Users\08739\Desktop\checkout\GarageCoop\team proj\obj\Debug\App.g.cs
+C:\Users\08739\Desktop\checkout\GarageCoop\team proj\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\08739\Desktop\checkout\GarageCoop\team proj\obj\Debug\team proj_MarkupCompile.cache
+C:\Users\08739\Desktop\checkout\GarageCoop\team proj\obj\Debug\team proj_MarkupCompile.lref
+C:\Users\08739\Desktop\checkout\GarageCoop\team proj\obj\Debug\Forms\DirectorWindow.baml
+C:\Users\08739\Desktop\checkout\GarageCoop\team proj\obj\Debug\Forms\LoginWindow.baml
+C:\Users\08739\Desktop\checkout\GarageCoop\team proj\obj\Debug\MainWindow.baml
+C:\Users\08739\Desktop\checkout\GarageCoop\team proj\obj\Debug\team proj.g.resources
+C:\Users\08739\Desktop\checkout\GarageCoop\team proj\obj\Debug\team_proj.Properties.Resources.resources
+C:\Users\08739\Desktop\checkout\GarageCoop\team proj\obj\Debug\GarageCoop.csproj.GenerateResource.Cache
+C:\Users\08739\Desktop\checkout\GarageCoop\team proj\bin\Debug\EntityFramework.dll
+C:\Users\08739\Desktop\checkout\GarageCoop\team proj\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\08739\Desktop\checkout\GarageCoop\team proj\bin\Debug\EntityFramework.xml
+C:\Users\08739\Desktop\checkout\GarageCoop\team proj\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\08739\Desktop\checkout\GarageCoop\team proj\obj\Debug\team proj_Content.g.cs
+C:\Users\08739\Desktop\asdbc\GarageCoop\team proj\bin\Debug\team proj.exe.config
+C:\Users\08739\Desktop\asdbc\GarageCoop\team proj\bin\Debug\team proj.exe
+C:\Users\08739\Desktop\asdbc\GarageCoop\team proj\bin\Debug\team proj.pdb
+C:\Users\08739\Desktop\asdbc\GarageCoop\team proj\bin\Debug\EntityFramework.dll
+C:\Users\08739\Desktop\asdbc\GarageCoop\team proj\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\08739\Desktop\asdbc\GarageCoop\team proj\bin\Debug\EntityFramework.xml
+C:\Users\08739\Desktop\asdbc\GarageCoop\team proj\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\08739\Desktop\asdbc\GarageCoop\team proj\obj\Debug\GarageCoop.csprojResolveAssemblyReference.cache
+C:\Users\08739\Desktop\asdbc\GarageCoop\team proj\obj\Debug\Forms\DirectorWindow.g.cs
+C:\Users\08739\Desktop\asdbc\GarageCoop\team proj\obj\Debug\Forms\LoginWindow.g.cs
+C:\Users\08739\Desktop\asdbc\GarageCoop\team proj\obj\Debug\MainWindow.g.cs
+C:\Users\08739\Desktop\asdbc\GarageCoop\team proj\obj\Debug\App.g.cs
+C:\Users\08739\Desktop\asdbc\GarageCoop\team proj\obj\Debug\team proj_Content.g.cs
+C:\Users\08739\Desktop\asdbc\GarageCoop\team proj\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\08739\Desktop\asdbc\GarageCoop\team proj\obj\Debug\team proj_MarkupCompile.cache
+C:\Users\08739\Desktop\asdbc\GarageCoop\team proj\obj\Debug\team proj_MarkupCompile.lref
+C:\Users\08739\Desktop\asdbc\GarageCoop\team proj\obj\Debug\Forms\DirectorWindow.baml
+C:\Users\08739\Desktop\asdbc\GarageCoop\team proj\obj\Debug\Forms\LoginWindow.baml
+C:\Users\08739\Desktop\asdbc\GarageCoop\team proj\obj\Debug\MainWindow.baml
+C:\Users\08739\Desktop\asdbc\GarageCoop\team proj\obj\Debug\team proj.g.resources
+C:\Users\08739\Desktop\asdbc\GarageCoop\team proj\obj\Debug\team_proj.Properties.Resources.resources
+C:\Users\08739\Desktop\asdbc\GarageCoop\team proj\obj\Debug\GarageCoop.csproj.GenerateResource.Cache
+C:\Users\08739\Desktop\asdbc\GarageCoop\team proj\obj\Debug\team proj.exe
+C:\Users\08739\Desktop\asdbc\GarageCoop\team proj\obj\Debug\team proj.pdb

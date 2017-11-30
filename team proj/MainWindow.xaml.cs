@@ -24,11 +24,17 @@ namespace team_proj
         {
             InitializeComponent();
 
-            foreach (DataGridColumn column in datagrid1.Columns)
-            {
-                column.Width = new DataGridLength(1.0, DataGridLengthUnitType.Star);
-                column.MinWidth = 130;
-            }
+                foreach (DataGridColumn column in datagrid1.Columns)
+                {
+                    column.Width = new DataGridLength(1.0, DataGridLengthUnitType.Star);
+                    column.MinWidth = 130;
+                }
+            /* Тестовое добавление */
+            //List<Garage_ListViewItem> garages = new List<Garage_ListViewItem>();
+            //garages.Add(new Garage_ListViewItem("Гараж №1", -55.8));
+            //garages.Add(new Garage_ListViewItem("Гараж №5", 75.1));
+            //garages.Add(new Garage_ListViewItem("Гараж №13", 0.00));
+            //lvGarages.ItemsSource = garages;
         }
 
         private void tbSearch_TextChanged(object sender, TextChangedEventArgs e)
